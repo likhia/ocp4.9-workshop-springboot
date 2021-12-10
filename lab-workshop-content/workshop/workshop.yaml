@@ -1,0 +1,14 @@
+name: Workshop Content
+
+modules:
+    activate:
+    - workshop-overview
+    - exercises/01-explore-dev-console
+    - exercises/02-crw
+    - exercises/03-call-common-service
+    - exercises/04-call-db
+    - exercises/05-move-sit
+    - exercises/06-abdeploymt
+    - exercises/07-monitoring
+    - exercises/08-resoucemgmt
+    - workshop-summary

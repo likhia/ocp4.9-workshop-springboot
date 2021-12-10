@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+                
+		<style>
+			table, th, td {
+  				border: 1px solid black;
+  				padding: 5px;
+			}
+			table {
+  				border-spacing: 10px;
+			}
+	     	</style>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                                <section>
+                                    <section>
+                                        <h3>Demo Scenario</h3>
+                                        <p> 
+                                        <img src="./images/demo1.png" /> 
+                                    </section>
+                                </section>
+                                <section> 
+                                    <section> 
+                                        <h6>These links are provided for the walk through demo. Please login as <font color="red">user50</font> and password as <font color="red">openshift</font> if prompt.</h6>
+                                        <table width="100%">
+                                           <tr> 
+                                              <th>Links</th>
+                                              <th>Demo Scenario</th>
+                                           </tr>
+                                           <tr>
+                                              <td><a href="https://console-openshift-console.apps.cluster-19dc.19dc.sandbox811.opentlc.com" target="_blank" rel="noopener noreferrer" >Openshift Console</a></td>
+                                              <td>All</td>
+                                           </tr>
+                                           <tr> 
+                                              <td><a href="http://order.apps.cluster-19dc.19dc.sandbox811.opentlc.com/" target="_blank" rel="noopener noreferrer" >Order Page</a></td>
+                                              <td>All</td>
+                                           </tr>
+                                           <tr>
+                                              <td><a href="https://jenkins-example-jenkins.apps.cluster-19dc.19dc.sandbox811.opentlc.com" target="_blank" rel="noopener noreferrer" >Jenkins</a></td>
+                                              <td>B</td>
+                                           </tr>
+                                           <tr>
+                                              <td><a href="https://kiali-istio-system.apps.cluster-19dc.19dc.sandbox811.opentlc.com/" target="_blank" rel="noopener noreferrer" >Service Mesh Traffic Monitoring</a></td>
+                                              <td>C</td>
+                                           </tr>
+                                           <tr> 
+                                              <td><a href="http://kafdrop-kafka.apps.cluster-19dc.19dc.sandbox811.opentlc.com/" target="_blank" rel="noopener noreferrer" >Kafka Monitoring</a>
+                                              <td>C and D</td>
+                                           </tr>
+                                        </table>
+                                    </section>
+                                </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
