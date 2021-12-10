@@ -105,16 +105,16 @@ curl -X POST -H "Content-Type: application/json"  -d '{"model": "Toyota Vios", "
 * Click on `Environment` tab. Click on `Add more`.
 
 * Add a new environment variable with name as `FAILURE` and value as `true`.  Click on [Save]. 
-[CodeReady Workspace 18](./images/02/crw-18.png)
+![CodeReady Workspace 18](./images/02/crw-18.png)
 
 * Click on `Workloads` -> `Pods`.   You will see a new pod is running and the original pod is terminating.  Please wait for the new pod to be running and orignal pod is removed. 
-[CodeReady Workspace 19](./images/02/crw-19.png)
+![CodeReady Workspace 19](./images/02/crw-19.png)
 
 * Access the `submitrequest` page again.  If the page is closed,  navigate to `Networking` -> `Route` and click on `Location` of `submitrequest`.
-[CodeReady Workspace 20](./images/02/crw-20.png)
+![CodeReady Workspace 20](./images/02/crw-20.png)
 
 * Submit a request again and you will see the request is failed.
-[CodeReady Workspace 21](./images/02/crw-21.png)
+![CodeReady Workspace 21](./images/02/crw-21.png)
 
 * Navigate to `Workloads` -> `Deployments`.  Click on `workshop-main`.  Clicke on `Environment` tab.   Change the value of `FAILURE` to `false`. 
 
@@ -126,12 +126,12 @@ curl -X POST -H "Content-Type: application/json"  -d '{"model": "Toyota Vios", "
   * **StartUp** : Indicates whether the application within a container is started. All other probes are disabled until the startup succeeds.
 
 * Navigate to `Workloads` -> `Deployments`.  Click on `workshop-main`.  Click on `YAML` tab.  Scroll down and you will see the readiness and liveness probes configure with `/actuator/health`. 
-[CodeReady Workspace 22](./images/02/crw-22.png)
+![CodeReady Workspace 22](./images/02/crw-22.png)
 
 * `/actuator/health` endpoint report an aggregated result of all registered HealthIndicators.  It is used to inspect the health status of a Spring Boot application. 
 
 * Click on `Terminal` tab.  Type `curl http://localhost:8080/actuator/health`.  You will see as below. 
-[CodeReady Workspace 23](./images/02/crw-23.png)
+![CodeReady Workspace 23](./images/02/crw-23.png)
 
 * We can register custom HealthIndicators to report the health of a component or subsystem. This requires an implementation of the HealthIndicator interface as a Spring bean.
 
