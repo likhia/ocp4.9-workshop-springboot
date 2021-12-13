@@ -10,7 +10,7 @@ Objective:
 
 * If project is not open,  please open the same project as the previous lab in Code Ready Workspace. 
 
-* To call REST service in Spring Boot, the following libraries need to include in pom.xml.  Please refer to the diagram below. 
+* To call REST service in Spring Boot, the following libraries need to include in pom.xml.  Please refer to the diagram below. Remove the comment <!-- -->. 
 ![Service Call 01](./images/03/servicecall-01.png)
 
 * Open `src/main/java/com/workshop/main/service/ServiceEndPoint.java`. Copy and paste the following under `//import classes (1)`.   
