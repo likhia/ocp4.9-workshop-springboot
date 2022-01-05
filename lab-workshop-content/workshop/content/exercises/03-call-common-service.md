@@ -10,7 +10,7 @@ Objective:
 
 * If project is not open,  please open the same project as the previous lab in Code Ready Workspace. 
 
-* To call REST service in Spring Boot, the following libraries need to include in pom.xml.  Please refer to the diagram below. Remove the comment <!-- -->. 
+* To call REST service in Spring Boot, the following libraries need to include in pom.xml.  Please refer to the diagram below and remove the comment as circle in red. 
 ![Service Call 01](./images/03/servicecall-01.png)
 
 * Open `src/main/java/com/workshop/main/service/ServiceEndPoint.java`. Copy and paste the following under `//import classes (1)`.   
@@ -52,6 +52,12 @@ private String getCarPlate(String type) {
     return (String) restTemplate.getForObject(uri, String.class);
 }
 ```
+* Add the following after System.out.prinln in the `registerVehicle` method.
+```
+//Invoke common webservice to get the car plate number based on Type attribute
+plateNo = getCarPlate(carInfo.getType());
+```
+![Service Call 01](./images/03/servicecall-10.png)
 
 * Open `resources/application.properties`.  Copy and paste the following after `resteasy.jaxrs.defaultPath:/api`.  This URI is being used to access this common service from external. 
 ```
@@ -93,15 +99,16 @@ curl -X POST -H "Content-Type: application/json"  -d '{"model": "Toyota Vios", "
 * Please go back to Openshift Web Console.   Navigate to Workloads -> ConfigMaps.  You will see the `service-config-map` which contains the same properties as resources/application.properties. 
 * Right-click on [Submit Request](http://submitrequest-service-%username%.apps.cluster-2e68.2e68.sandbox1783.opentlc.com) in a new tab to register a new vehicle.                                         
 
-* Navigate to Workloads -> Pods.  Find the pod name with registervehicle*.  Click on it and click on Logs tab.  You will see the URL pointing the internal service instead of the route uri.
-![Service Call 08](./images/03/servicecall-08.png)
+* Navigate to Workloads -> Pods.  
 
-* Right-click on [Common Page](http://services-common.apps.cluster-2e68.2e68.sandbox1783.opentlc.com) in a new tab to search the new vehicle under `2. Get List of Vehicle By User`.  
+* Find the pod name with workshop-main*.  Click on it and click on Logs tab.  You will see the URL pointing the internal service instead of the route uri.
+![Service Call 08](./images/03/servicecall-08.png)
 
 ### Summary
 
 You have learnt 
 * Implement REST call with Spring Boot. 
+* How to invoke services within the same Openshift cluster.
 * How to make use of ConfigMap as properties file
 * How to use ConfigMap in the Deployment
 

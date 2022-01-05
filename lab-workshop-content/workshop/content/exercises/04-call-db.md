@@ -13,7 +13,7 @@ Objective:
 
 * If project is not open,  please open the same project as the previous lab in CodeReady Workspace. 
 
-* To use Java Persistence API(JPA) in Spring Boot, the following libraries need to include in pom.xml.  Please refer to the diagram below. 
+* To use Java Persistence API(JPA) in Spring Boot, the following libraries need to include in pom.xml.  Please refer to the diagram below and remove the comment as circle in red. 
 ![DB Call 01](./images/04/dbcall-01.png)
 
 * Navigate to `src/main/java/com/workshop/main`.  Right-click on `main` folder and select `New Folder`. Name it as `entity`.
@@ -169,6 +169,12 @@ private void save(CarRegistration carInfo, String carplate) {
     repository.save(vehicle);
 }
 ```
+
+* Invoke the `save` method after the `//Invoke save method`  in `registerVehicle` method.  
+```
+//Invoke save method
+save(carInfo, plateNo);
+``` 
 
 * Open `resources/application.properties`.  Copy and paste the following after `common.uri`.  These properties are used to connect to database.  
   * The 'spring.datasource.url' is pointing the MySQLdatabase in `database` project.  This URI is being used to access the database from external. 
