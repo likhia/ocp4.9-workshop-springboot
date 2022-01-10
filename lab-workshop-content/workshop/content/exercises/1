@@ -6,7 +6,7 @@ If a pod is matched by selectors in one or more NetworkPolicy objects, then the 
 
 ### Create Network Policy to restrict Ingress access
 
-* In the previous exercises,  you have created 2 environments (DEV and SIT).  Typical, DEV projects are not allowed to access SIT projects.   In the exercise 5,  we have labelled your project - service-sit-%username% with `env=sit` so that your project is able to access database in `database-sit` project with the network policies below.  The 2 default network policies are deleted.  Those policies allowed all pods in this project are accessible from other pods and network endpoints.  
+* In the previous labs,  you have created 2 environments (DEV and SIT).  Typical, DEV projects are not allowed to access SIT projects.   In lab 5,  we have labelled your project - service-sit-%username% with `env=sit` so that your project is able to access database in `database-sit` project with the network policies below.  The 2 default network policies are deleted.  Those policies allowed all pods in this project are accessible from other pods and network endpoints.  
 
 * Network Policy to deny all traffics. 
 ```
@@ -75,35 +75,6 @@ oc label namespace service-sit-%username%  env=sit
 * Navigate to `Console` tab.  Navigate to service-sit-%username% project.  Go to `Workloads` -> `Pods`.  Click on the pod with name starts with `workshop-main`.  
 
 * Click on `Terminal` tab.  Type curl www.google.com. 
-![network 1](./images/10/network-1.png)
 
-* Navigate to `Terminal` tab of the workshop.  
-```execute
-echo "
-apiVersion: network.openshift.io/v1
-kind: EgressNetworkPolicy
-metadata:
-  name: denyegress
-  namespace: service-sit-%username%
-spec:
-  egress: 
-  - type: Deny
-    to:
-      cidrSelector: 0.0.0.0/0
-" >> denyegress.yaml
-```
-```execute
-oc create -f denyegress.yaml
-```
-
-* Open the same pod again.  Click on `Terminal` tab.  Type curl www.google.com. You will see connection timeout from sometimes. 
-![network 2](./images/10/network-2.png)
-
-### Summary
-
-In this exercise, you have learned to
-
-* use Network policy to isolate access between projects. 
-* use Network policy to block egress traffics. 
 
 

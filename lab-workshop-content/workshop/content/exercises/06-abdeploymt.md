@@ -11,7 +11,7 @@ oc project service-sit-%username%
 
 * Execute the command below.  To deploy another submitrequest with background as lightblue. 
 ```execute
-oc new-app --name=submitrequest-blue  --image-stream='submitrequest:sit' -e COLOR=lightblue -e ENDPOINT=http://submitrequest-blue-service-sit-%username%.apps.cluster-2e68.2e68.sandbox1783.opentlc.com/ -e HOSTNAME=workshop-main.service-sit-%username%.svc.cluster.local
+oc new-app --name=submitrequest-blue  --image-stream='submitrequest:sit' -e COLOR=lightblue -e ENDPOINT=http://submitrequest-white-service-sit-%username%.apps.cluster-2e68.2e68.sandbox1783.opentlc.com/ -e HOSTNAME=workshop-main.service-sit-%username%.svc.cluster.local
 ```
 
 * Approach 1: To replace the service in existing route.  

@@ -15,10 +15,15 @@ Objective:
 
 * Please note that Jenkins operator is already installed by administrator.
 
-* Click on Terminal tab and execute the command below to create new project for SIT. 
+* Click on Terminal tab and execute the command below to create new project for SIT and label project with env=SIT.  This will be used in the last lab. 
 ```execute
 oc new-project service-sit-%username%
 ```
+
+```execute
+oc label namespace service-sit-test  env=SIT 
+```
+
 * Click on Console tab and select project as jenkins-%username%. 
 
 * Navigate to Operators -> Installed Operators.
