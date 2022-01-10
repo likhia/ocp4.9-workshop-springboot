@@ -61,7 +61,7 @@ oc get pods -n service-sit-%username%
 oc logs -f workshop-main-5dcf55d7dc-4l4fk -n service-sit-test
 ```
 
-* Set the label again.  Delete the `workshop-main*` pod again and monitor the logs of the new pod.
+* Set the label again.  Delete the `workshop-main*` pod again and monitor the logs of the new pod.  It is able to connect to the database again. 
 ```execute
 oc label namespace service-sit-%username%  env=sit
 ```
