@@ -125,7 +125,7 @@ spec:
           defaultMode: 420
       containers:
       - name: spring-boot
-        image : image-registry.openshift-image-registry.svc:5000/service-sit/workshop-main:sit
+        image : image-registry.openshift-image-registry.svc:5000/service-sit-%username%/workshop-main:sit
         env:
         - name: SPRING_DATASOURCE_PASSWORD
           valueFrom:
@@ -153,8 +153,8 @@ spec:
 
 * Scroll to below.  Copy and paste below into the Script.  Click on [Submit]. 
 ```
-def DEV_NS = "service"
-def SIT_NS = "service-sit"
+def DEV_NS = "service-%username%"
+def SIT_NS = "service-sit-%username%"
 def DEV_IMAGE = "workshop-main:latest"
 def SIT_IMAGE = "workshop-main:sit"
 def DEV_UI_IMAGE = "submitrequest:latest"
@@ -231,7 +231,7 @@ pipeline {
               sh "oc -n $DEV_NS tag $DEV_NS/$DEV_UI_IMAGE $SIT_NS/$SIT_UI_IMAGE"
               sh "sleep 10s"
               sh "oc project $SIT_NS"
-              sh "oc new-app --name=$UI_NAME  --image-stream='$SIT_NS/$SIT_UI_IMAGE' -e COLOR=white -e ENDPOINT=http://submitrequest-white-service-sit.apps.cluster-2e68.2e68.sandbox1783.opentlc.com/ -e HOSTNAME=workshop-main.service-sit.svc.cluster.local"
+              sh "oc new-app --name=$UI_NAME  --image-stream='$SIT_NS/$SIT_UI_IMAGE' -e COLOR=white -e ENDPOINT=http://submitrequest-white-service-sit-%username%.apps.cluster-2e68.2e68.sandbox1783.opentlc.com/ -e HOSTNAME=workshop-main.service-sit-%username%.svc.cluster.local"
               sh "oc expose svc $UI_NAME"
               
               

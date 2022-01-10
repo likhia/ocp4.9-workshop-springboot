@@ -10,6 +10,10 @@ This lab is break into the following sections:
   
 This is to let attendee to experience how to import existing spring boot project into CodeReady Workshop and deploy it into Openshift and use Openshift Developer Console to deploy a Node JS application.  
 
+* Deploy Node JS application using Developer console
+
+This is to let attendee to experience application deployment using Developer console. 
+
 * Rolling Deployment 
 
 This is to let attendee to experience how does the rolling deployment works in Openshift. 
@@ -62,6 +66,16 @@ curl -X POST -H "Content-Type: application/json"  -d '{"model": "Toyota Vios", "
 * After it is successful, click on **console**. Switch to `Developer` mode.  Go to `Topology`.   You will see the application deployed successfully into `service-%username%` project. Please wait till the circle turned dark blue as shown below.                    
 ![CodeReady Workspace 10](./images/02/crw-10.png)
 
+* Click on icon on the right-hand upper corner.   You will see the same application as shown earlier. 
+
+* Navigate back to `Code Ready`.  Go to the Terminal and type the below.   You will get the same result.  
+
+```
+curl -X POST -H "Content-Type: application/json"  -d '{"model": "Toyota Vios", "color" : "RED", "type" : "NORMAL", "engineCapacity" : "1.6", "createdYear" : "2021" , "used" : false, "user" : "user1"}'  http://$(oc get route workshop-main  -o jsonpath='{.spec.host}')/api/service/registervehicle
+```
+
+### Deploy Node JS application using Developer console
+
 * Next, we will use the developer console to import an existing Node JS application which provide the web UI for this application. 
 
 * Stay at `Developer` mode.  Click +Add.  Click `From Git`. Set `Git Repo URL` as `https://github.com/likhia/nodejs-web-app-services.git`.  
@@ -76,7 +90,7 @@ curl -X POST -H "Content-Type: application/json"  -d '{"model": "Toyota Vios", "
 
 * Add the following environment variables.  Click on [Create].
   * **COLOR** : white -- This is to set the background color as white. 
-  * **ENDPOINT** : http://submitrequest-service-%username%.apps.cluster-2e68.2e68.sandbox1783.opentlc.com/ -- This is pointing to URI of current UI. 
+  * **ENDPOINT** : http://submitrequest-service-%username%.apps.cluster-2e68.2e68.sandbox1783.opentlc.com/ -- This is pointing to URI of current UI. Please note that this URL must end with /. 
   * **HOSTNAME** : workshop-main.service-%username%.svc.cluster.local  -- This is pointing to the service that you just deployed.     
 ![CodeReady Workspace 14](./images/02/crw-14.png)
 
@@ -107,7 +121,7 @@ curl -X POST -H "Content-Type: application/json"  -d '{"model": "Toyota Vios", "
 * Add a new environment variable with name as `FAILURE` and value as `true`.  Click on [Save]. 
 ![CodeReady Workspace 18](./images/02/crw-18.png)
 
-* Click on `Workloads` -> `Pods`.   You will see a new pod is running and the original pod is terminating.  Please wait for the new pod to be running and orignal pod is removed. 
+* Click on `Workloads` -> `Pods`.   You will see a new pod is running and the original pod is terminating.  Please wait for the new pod to be running and original pod is removed. 
 ![CodeReady Workspace 19](./images/02/crw-19.png)
 
 * Access the `submitrequest` page again.  If the page is closed,  navigate to `Networking` -> `Route` and click on `Location` of `submitrequest`.
@@ -129,6 +143,8 @@ curl -X POST -H "Content-Type: application/json"  -d '{"model": "Toyota Vios", "
 ![CodeReady Workspace 22](./images/02/crw-22.png)
 
 * `/actuator/health` endpoint report an aggregated result of all registered HealthIndicators.  It is used to inspect the health status of a Spring Boot application. 
+
+* Click on `Pods` tab. Click on the only one Pod instance. 
 
 * Click on `Terminal` tab.  Type `curl http://localhost:8080/actuator/health`.  You will see as below. 
 ![CodeReady Workspace 23](./images/02/crw-23.png)
@@ -160,6 +176,8 @@ curl -X POST -H "Content-Type: application/json"  -d '{"model": "Toyota Vios", "
  
 * Monitor the changes for the next few mins.   You will see the deployment keep scaling up and down.   It is due to the liveness probe.  Kubelet is shutting down and restart pods based on its returned status.  
 
+* Or switch to `Pods` tab.   You will see the same thing too. 
+
 ## Reset the changes 
 
 * Navigate to your `CodeReady Workspace`.  Open the same project that was imported earlier.
@@ -169,7 +187,7 @@ curl -X POST -H "Content-Type: application/json"  -d '{"model": "Toyota Vios", "
 
 * Click on the box icon on the right.  Click on `Build` to build the application.
 
-* Use the same terminal and type ** oc project ** to make sure you are still at `service-%username%` project.  If need to login again,  type **oc login `https://api.cluster-19dc.19dc.sandbox811.opentlc.com:6443` -u `%username%` -p `openshift`** and `Y` when prompt.
+* Use the same terminal and type **oc project** to make sure you are still at `service-%username%` project.  If need to login again,  type **oc login `https://api.cluster-19dc.19dc.sandbox811.opentlc.com:6443` -u `%username%` -p `openshift`** and `Y` when prompt.
 
 * Type `oc project service-%username%` to switch to correct project to deploy application.
 

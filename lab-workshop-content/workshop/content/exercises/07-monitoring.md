@@ -20,7 +20,7 @@ Developer need to monitor the application deployed and access the logs for inves
 * Click on 'Details' tab to view the Memory usage, CPU usage, Filesystem, Network In, Network out and other details about the pod running the application. 
 ![Monitoring 04](./images/07/monitor-04.png)
 
-* Click on **Monitoring** on the left. Click on `Dashboard` tab.  You will see graphs depicting the CPU, memory, and bandwidth consumption and network related information.
+* Click on **Observe** on the left. Click on `Dashboard` tab.  You will see graphs depicting the CPU, memory, and bandwidth consumption and network related information.
 ![Monitoring 05](./images/07/monitor-05.png)
 
 * Click on `Metric` tab.  Select `CPU usage` from dropdown list.  Click on `Show PromQL`. You will see the CPU utilization for this application and also the Prometheus query for this chart.  

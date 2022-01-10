@@ -173,7 +173,7 @@ Now it is time to generate load and test
 * Click on the **below terminal** and copy & paste below to run the load generator pod from that terminal.
 
 ```
-oc run --generator=run-pod/v1 -it --rm load-generator --image=busybox /bin/sh
+oc run -it --rm load-generator --image=busybox /bin/sh
 ```
 ```
 If you don't see a command prompt, try pressing enter.

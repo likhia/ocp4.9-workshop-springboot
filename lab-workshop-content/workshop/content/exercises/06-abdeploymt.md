@@ -19,6 +19,10 @@ oc new-app --name=submitrequest-blue  --image-stream='submitrequest:sit' -e COLO
 oc patch route/submitrequest-white -p '{"spec":{"to":{"name":"submitrequest-blue"}}}'
 ```
 
+* Open console tab. Switch to `service-sit-%username% project.
+
+* Go to `Networking` -> `Routes`.   Right-click on `Locations` of `submitrequest-white`.  The background color is always showing lightblue. 
+
 * Approach 2: To assign certain workload to old and new version.  This is to assign 50%-50% load balancing.
 ```
 oc set route-backends submitrequest-white submitrequest-white=1 submitrequest-blue=1

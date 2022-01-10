@@ -118,7 +118,7 @@ package com.workshop.main.entity;
 
 import org.springframework.data.repository.CrudRepository;
 
-// This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
+// This will be AUTO IMPLEMENTED by Spring into a Bean called VehicleRepository.
 // CRUD refers Create, Read, Update, Delete
 
 public interface VehicleRepository extends CrudRepository<VehicleEntity, Integer> {
@@ -193,7 +193,7 @@ spring.datasource.validationQuery=SELECT 1
 
 * Click on the cube icon on the right. 
 
-* Click on the `1. Build' and wait till it shows as `Build Success`.
+* Click on the `1. Build` and wait till it shows as `Build Success`.
 
 * Click on the `2. Run` and wait till it shows as `Started ExampleApplication`.
 

@@ -97,7 +97,8 @@ curl -X POST -H "Content-Type: application/json"  -d '{"model": "Toyota Vios", "
 * Click on `6. Deploy to Openshift`.   
 
 * Please go back to Openshift Web Console.   Navigate to Workloads -> ConfigMaps.  You will see the `service-config-map` which contains the same properties as resources/application.properties. 
-* Right-click on [Submit Request](http://submitrequest-service-%username%.apps.cluster-2e68.2e68.sandbox1783.opentlc.com) in a new tab to register a new vehicle.                                         
+
+* Right-click on this link -  [Submit Request](http://submitrequest-service-%username%.apps.cluster-2e68.2e68.sandbox1783.opentlc.com) to open the application in a new tab to register a new vehicle.                                         
 
 * Navigate to Workloads -> Pods.  
 
