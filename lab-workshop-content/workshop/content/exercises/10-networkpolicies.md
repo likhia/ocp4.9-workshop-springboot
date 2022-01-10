@@ -6,7 +6,7 @@ If a pod is matched by selectors in one or more NetworkPolicy objects, then the 
 
 ### Create Network Policy to restrict Ingress access
 
-* In the previous exercises,  you have created 2 environments (DEV and SIT).  Typical, DEV projects are not allowed to access SIT projects.   In the exercise 5,  we have labelled your project - service-sit-%username% with `env=sit` so that your project is able to access database in `database-sit` project with the network policies below.  The 2 default network policies are deleted.  Those policies allowed all pods in this project are accessible from other pods and network endpoints.  
+* In the exercise 5,  we have labelled your project, `service-sit-%username%` with `env=sit` so that your project is able to access database in `database-sit` project with the network policies below.  The 2 default network policies are deleted.  The defaulted policies allow all pods in this project are accessible from other pods and network endpoints.  
 
 * Network Policy to deny all traffics. 
 ```
@@ -61,7 +61,7 @@ oc get pods -n service-sit-%username%
 oc logs -f workshop-main-5dcf55d7dc-4l4fk -n service-sit-test
 ```
 
-* Set the label again.  Delete the `workshop-main-` pod again and monitor the logs of the new pod.
+* Set the label again.  Delete the `workshop-main*` pod again and monitor the logs of the new pod.
 ```execute
 oc label namespace service-sit-%username%  env=sit
 ```
